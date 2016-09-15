@@ -19,5 +19,5 @@ To use user scripts you need to first install a user script manager. For Firefox
 Additional information will be available on my [blog](https://goo.gl/DrRSGH) soon.
 If you need help, please contact me there or open an [issue](https://github.com/sgeto/Betty/issues).
 
-![alt text]((https://1.bp.blogspot.com/-VCFxO5wbOYw/V9optetVKcI/AAAAAAAABmE/g4ruvAETn8gxNbXoHZA21rYUogj45nzcwCLcB/s320/betty-space%2Binvader%2Bemoji.png "Betty")
+![picture alt]((https://1.bp.blogspot.com/-VCFxO5wbOYw/V9optetVKcI/AAAAAAAABmE/g4ruvAETn8gxNbXoHZA21rYUogj45nzcwCLcB/s320/betty-space%2Binvader%2Bemoji.png "Betty")
 
