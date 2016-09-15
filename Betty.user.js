@@ -2,7 +2,7 @@
 // @name            Betty
 // @namespace       autostart.ini@gmail.com
 // @author          Ali Abdulkadir (sgeto)
-// @version         0.4
+// @version         0.4.2
 // @license         GPL version 3 or any later version; http://www.gnu.org/licenses/gpl-3.0.txt
 // @description     A user script that assists in finding open directories with Google.
 // @copyright       Jorge Frisancho (teocci), Ali Abdulkadir (sgeto)
@@ -12,10 +12,10 @@
 // @updateURL       https://raw.githubusercontent.com/sgeto/Betty/master/Betty.user.js
 // @downloadURL     https://raw.githubusercontent.com/sgeto/Betty/master/Betty.user.js
 // @contributionURL https://github.com/sgeto/Betty
-// @match           https://*.google.com/*
-// @include         https://*.google.com/*
-// @exclude         https://*.images.google.com/*
-// @exclude         https://*.video.google.com/*
+// @match           https://*.google.*
+// @include         https://*.google.*
+// @exclude         https://*.images.google.*
+// @exclude         https://*.video.google.*
 // @run-at          document-end
 // @grant           GM_xmlhttpRequest
 // ==/UserScript==
