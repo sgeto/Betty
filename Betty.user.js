@@ -19,6 +19,11 @@
 // @run-at          document-end
 // @grant           GM_xmlhttpRequest
 // ==/UserScript==
+//this will allow normal web queries
+var oldSubmit = document.getElementById('tsf').onsubmit;
+document.getElementById('tsf').onsubmit = function() {
+	oldSubmit();
+};
 function newradio(nametext, dorkvalue) {
   var search = document.getElementsByName('f') [0];
   var sometext = document.createTextNode(nametext);
