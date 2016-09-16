@@ -51,13 +51,14 @@ function newselect(nametext, dork) {
 if ((document.title === 'Google')) {
   document.getElementsByName('q') [0].focus();
   newradio('Web', '');
-  newradio('Music', 'intitle:"music" (mp3|flac|wav|m4a|ogg|wma) "Parent Directory" -htm -html -asp -php -listen77 -idmusic -airmp3 -shexy -vmp3');
-  newradio('Movies/TV', '(avi|mpg|wmv|mpeg|mp4|mkv|m4v|mov|flv|ogv|wmv|webm) "Parent Directory" -"Trailer" -cdkey -asp -torrent -html -web-shelf -zoozle -jsp -htm -listen77 -idmovies -shexy -eucontest -0x7');
-  newradio('FTP Folder', '"Parent Directory" intitle:"index.of" "Name" "Last modified" "Size" "Description" -inurl:htm -inurl:html -inurl:php -xxx -shtml -opendivx -md5 -md5sums -asp');
-  newradio('Torrents', '+torrent -trailer -blogspot -proxy');
-  newradio('EBooks/Comics', '(chm|pdf|cbr|nfo|epub) -torrents -torrent -md5 -md5sums -idpdf');
-  newradio('Archives', '(rar|zip|tar|iso|cso|gz|7z|bz2|gz|gzip|img) -torrent +intitle:"index.of"');
-  newradio('(Mobile) Apps', '(exe|msi|msu|apk|deb) -torrent +intitle:"index.of"');
+  newradio('Music', '+(mp3|wav|ac3|ogg|flac|wma|m4a) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
+  newradio('Movies/TV', '+(mkv|mp4|avi|mov|mpg|wmv) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
+  newradio('Undefined', 'intitle:"index of" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
+  newradio('Archives', '+(.rar|.tar|.zip|.sit) intitle:"index of" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
+  newradio('Software/Games', '+(exe|iso|tar|msi|rar|deb|zip|apk) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
+  newradio('Google Drive', 'site:drive.google.com -"Whoops!');
+  newradio('Torrent', '+(.torrent) -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis|trailer)');
+  newradio('Books', '+(MOBI|CBZ|CBR|CBC|CHM|EPUB|FB2|LIT|LRF|ODT|PDF|PRC|PDB|PML|RB|RTF|TCR|DOC|DOCX) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
 } else {
   
   var s = document.createElement('select');
