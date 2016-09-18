@@ -32,7 +32,6 @@ function newradio(nametext, dorkvalue) {
   someradio.setAttribute('type', 'radio');
   someradio.setAttribute('name', 'q');
   someradio.setAttribute('value', dorkvalue);
-  // This statement is to automatically set the radio button to to "Web" at launch. It unfortunately breaks the Google Search button.
   if (nametext === 'Web') {
     someradio.setAttribute('checked', 'checked');
   }

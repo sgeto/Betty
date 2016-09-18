@@ -3,18 +3,7 @@
 
 This User Script started as gift for a friend. It is inspired and partial based on teocci's __[GooglePirateExtended](https://github.com/teocci/GooglePirateExtended)__.
 
-A User Scripts allows to customize the way a web page displays or behaves, by using small bits of JavaScript.
-
-From [Greasyfork](https://greasyfork.org/):
-
-What are User Scripts?
-
-User Scripts put you in control of your browsing experience. Once installed, they automatically make the sites you visit better by adding features, making them easier to use, or taking out the annoying bits.
-
-How do I install User Scripts?
-
-To use user scripts you need to first install a user script manager. For Firefox, the best choice is  [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/). For Chrome: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo). Other options [exist](https://greasyfork.org/en/help/installing-user-scripts).
-
+The script now adds “cached” links next to each search result, just like in the old days (in case directory browsing has been disabled). In the future, I am planning to include a RAW image search. You can find it on [GitHub](https://github.com/sgeto/Betty), [Greasyfork](https://greasyfork.org/en/scripts/23332-betty) and [OpenUserJS](https://openuserjs.org/scripts/sgeto/Betty).
 
 Additional information are available on my [blog](https://paxadiutor.blogspot.com/2016/09/betty-now-available-in-javascript.html).
 If you need help, please contact me there or open an [issue](https://github.com/sgeto/Betty/issues).
