@@ -16,7 +16,7 @@ How do I install User Scripts?
 To use user scripts you need to first install a user script manager. For Firefox, the best choice is  [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/). For Chrome: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo). Other options [exist](https://greasyfork.org/en/help/installing-user-scripts).
 
 
-Additional information will be available on my [blog](https://goo.gl/DrRSGH) soon.
+Additional information are available on my [blog](https://paxadiutor.blogspot.com/2016/09/betty-now-available-in-javascript.html).
 If you need help, please contact me there or open an [issue](https://github.com/sgeto/Betty/issues).
 
 ![picture alt](https://raw.githubusercontent.com/sgeto/Betty/master/betty-space%20invader%20emoji.png "Betty")

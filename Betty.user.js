@@ -2,21 +2,21 @@
 // @name            Betty
 // @namespace       autostart.ini@gmail.com
 // @author          Ali Abdulkadir (sgeto)
-// @version         0.5
+// @version         0.6
 // @license         GPL version 3 or any later version; http://www.gnu.org/licenses/gpl-3.0.txt
 // @description     A user script that assists in finding open directories with Google.
-// @copyright       Jorge Frisancho (teocci), Ali Abdulkadir (sgeto)
+// @copyright       Jorge Frisancho (teocci), Ali Abdulkadir (sgeto), jO9GEc
 // @icon            https://raw.githubusercontent.com/sgeto/Betty/master/betty-space%20invader%20emoji.png
 // @homepage        Diarium
 // @homepageURL     https://goo.gl/DrRSGH
 // @updateURL       https://raw.githubusercontent.com/sgeto/Betty/master/Betty.user.js
 // @downloadURL     https://raw.githubusercontent.com/sgeto/Betty/master/Betty.user.js
 // @contributionURL https://github.com/sgeto/Betty
-// @match           https://*.google.*
 // @include         https://*.google.*
 // @exclude         https://*.images.google.*
 // @exclude         https://*.video.google.*
 // @run-at          document-end
+// @require         http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js
 // @grant           GM_xmlhttpRequest
 // ==/UserScript==
 //this will allow normal web queries
@@ -58,47 +58,44 @@ if ((document.title === 'Google')) {
   newradio('Software/Game', '+(exe|iso|tar|msi|rar|deb|zip|apk) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
   newradio('Torrent', '+(.torrent) -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis|trailer)');
   newradio('Book', '+(MOBI|CBZ|CBR|CBC|CHM|EPUB|FB2|LIT|LRF|ODT|PDF|PRC|PDB|PML|RB|RTF|TCR|DOC|DOCX) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
-//  uncomment the folling line to use the experimental Google Drive search  
-//  newradio('Google Drive (experimental)', 'site:drive.google.com -"Whoops!"');
+//  uncomment the following line to use the experimental Google Drive search  
+//newradio('Google Drive (experimental)', 'site:drive.google.com -"Whoops!"');
+}
 
-} else {
-  
-  var s = document.createElement('select');
-  s.setAttribute('name', 'q');
-  s.setAttribute('onchange', 'window.location.href=window.location.href.split("&q=")[0]+"&q="+window.location.href.split("&q=")[1].split("&")[0]+"&q="+this.value');
-  document.getElementById('prs').appendChild(s);
-  // The contents in both of these (newradio and newselect) have to be identical?!
-  newselect('Web', '');
-  newselect('Music', '+(mp3|wav|ac3|ogg|flac|wma|m4a) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
-  newselect('Movies/TV', '+(mkv|mp4|avi|mov|mpg|wmv) -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of "last modified" -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis)');
-  newselect('FTP Folder', '"Parent Directory" intitle:"index.of" "Name" "Last modified" "Size" "Description" -inurl:htm -inurl:html -inurl:php -xxx -shtml -opendivx -md5 -md5sums -asp');
-  newselect('Torrents', '+torrent -trailer -blogspot -proxy');
-  newselect('EBooks/Comics', '(chm|pdf|cbr|nfo|epub) -torrents -torrent -md5 -md5sums -idpdf');
-  newselect('Archives', '(rar|zip|tar|iso|cso|gz|7z|bz2|gz|gzip|img) -torrent +intitle:"index.of"');
-  newselect('(Mobile) Apps', '(exe|msi|msu|apk|deb) -torrent +intitle:"index.of"');
-  // the next few statements seem to discard certain results based on keywords in their URL's. Which we already told Google to do for us...
-  var i = 1;
-  while (i < s.options.length) {
-    if (s.options[i].defaultSelected === true) {
-      document.evaluate('//input[contains(@title, "Search")]', document, null, 0, null).iterateNext().value = window.location.href.split('&q=') [1].split('&') [0];
-    }
-    i++;
-  }
-  var p = 0;
-  var qs = document.evaluate('//input[contains(@title, "Search")]', document, null, 0, null).iterateNext();
-  var newqs = '';
-  while (p < qs.value.split('+').length) {
-    if (p == qs.value.split('+').length - 1) {
-      newqs = newqs + qs.value.split('+') [p];
-    } else {
-      newqs = newqs + qs.value.split('+') [p] + ' ';
-    }
-    p++;
-  }
-  qs.value = newqs;
-  var ni = document.createElement('input');
-  ni.setAttribute('type', 'hidden');
-  ni.setAttribute('name', 'q');
-  ni.setAttribute('value', s.value);
-  document.forms[0].appendChild(ni);
+// add cached links to results. Huge thanks to jO9GEc's "Direct Google"
+var href = location.href;
+
+function modifyGoogle() {
+	//expose cached links
+	$('div[role="menu"] ol li').find('a[href^="http://webcache.googleusercontent."]' + 
+		', a[href^="https://webcache.googleusercontent."]').each(
+		function() {
+			this.style.display = 'inline';
+			$(this).closest('div.action-menu.ab_ctl, div._nBb')
+			.after(' <a href="' + this.href.replace(/^http\:/, 'https:') + 
+				'">(https)</a> ')
+			.after($(this));
+		}
+	);
+}
+
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+if(MutationObserver) {
+	var observer = new MutationObserver(function(mutations) {
+		modifyGoogle();
+	});
+	//tiny delay needed for firefox
+	setTimeout(function() {
+		observer.observe(document.body, {
+			childList: true, 
+			subtree: true
+		});
+		modifyGoogle();
+	}, 100);
+}
+//for chrome v18-, firefox v14-, internet explorer v11-, opera v15- and safari v6-
+else {
+	setInterval(function() {
+		modifyGoogle();
+	}, 500);
 }
