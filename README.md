@@ -8,5 +8,5 @@ The script now adds “cached” links next to each search result, just like in 
 Additional information are available on my [Blog](https://paxadiutor.blogspot.com/2016/09/betty-now-available-in-javascript.html).
 If you need help, please contact me there or open an [issue](https://github.com/sgeto/Betty/issues).
 
-![picture alt](https://raw.githubusercontent.com/sgeto/Betty/master/betty-space%20invader%20emoji.png "Betty")
+![Betty](https://raw.githubusercontent.com/sgeto/Betty/master/betty-space%20invader%20emoji.png "Betty")
 

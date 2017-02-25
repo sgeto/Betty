@@ -1,3 +1,15 @@
+remove cached entries + jquery nonsense
+
+___________
+make it android ready!!! https://addons.mozilla.org/en-US/android/addon/userunified-script-injector/
+Note:
+This Addon is still an alpha version, many things will not work properly.
+
+Userscripts written for Greasemonkey won't run sometimes, because of the handling for @run-at defined in the meta block.
+Try to change it from "document-start" to "document-ready" if some Userscripts does not run. For more Information about this topic, take a look on this page where contentScriptWhen is explained (https://developer.mozilla.org/en-US/Add-ons/SDK/High-Level_APIs/page-mod)
+
+___________
+
 http://www.filechef.com
 ----------------------http://www.mmnt.net 
 Movies/TV 
