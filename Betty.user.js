@@ -2,7 +2,7 @@
 // @name            Betty
 // @namespace       autostart.ini@gmail.com
 // @author          Ali Abdulkadir (sgeto)
-// @version         0.6.5
+// @version         0.6.6
 // @license         GPL version 3 or any later version; http://www.gnu.org/licenses/gpl-3.0.txt
 // @description     A user script that assists in finding open directories with Google.
 // @copyright       Ali Abdulkadir (sgeto), Jorge Frisancho (teocci), jO9GEc
