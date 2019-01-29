@@ -29,12 +29,14 @@ function newradio(nametext, dorkvalue) {
   var search = document.getElementsByName('f') [0];
   var sometext = document.createTextNode(nametext);
   var someradio = document.createElement('input');
+  var breakup = document.createElement('br');
   someradio.setAttribute('type', 'radio');
   someradio.setAttribute('name', 'q');
   someradio.setAttribute('value', dorkvalue);
   if (nametext === 'Web') {
     someradio.setAttribute('checked', 'checked');
   }
+  search.appendChild(breakup);
   search.appendChild(someradio);
   search.appendChild(sometext);
 }
